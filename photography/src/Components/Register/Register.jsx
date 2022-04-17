@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../Spinner/LoadingSpinner";
 const Register = () => {
