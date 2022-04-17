@@ -7,6 +7,7 @@ import {
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../Spinner/LoadingSpinner";
+import SocialLogin from "./SocialLogin";
 
 const Login = () => {
   const [email, setEmail] = useState();
@@ -119,55 +120,55 @@ const Login = () => {
                     Sign In
                   </button>
                 </div>
-                <div className="p-2 w-full border-t border-gray-200 text-center">
-                  <div className="container  mx-auto">
-                    <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
-                      <div className="p-2 sm:w-1/2 w-full">
-                        <div className="bg-gray-100 rounded flex p-4 h-full items-center">
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={3}
-                            className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                          </svg>
-                          <Link to="/register">
-                            <span className="title-font font-medium">
-                              <p>New to Genius Car?</p>
-                              Please Register
-                            </span>
-                          </Link>
-                        </div>
-                      </div>
-                      <div className="p-2 sm:w-1/2 w-full">
-                        <div className="bg-gray-100 rounded flex p-4 h-full items-center">
-                          <svg
-                            fill="none"
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={3}
-                            className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
-                            viewBox="0 0 24 24"
-                          >
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                            <path d="M22 4L12 14.01l-3-3" />
-                          </svg>
-                          <span
-                            onClick={resetPassword}
-                            className="cursor-pointer title-font font-medium"
-                          >
-                            <p>Forget Password? </p>Reset Password
-                          </span>
-                        </div>
-                      </div>
+                <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                  <div className="p-2 sm:w-1/2 w-full">
+                    <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <path d="M22 4L12 14.01l-3-3" />
+                      </svg>
+                      <Link to="/register">
+                        <span className="title-font font-medium">
+                          <p>New to Genius Car?</p>
+                          Please Register
+                        </span>
+                      </Link>
                     </div>
                   </div>
+                  <div className="p-2 sm:w-1/2 w-full">
+                    <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                      <svg
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                        <path d="M22 4L12 14.01l-3-3" />
+                      </svg>
+                      <span
+                        onClick={resetPassword}
+                        className="cursor-pointer title-font font-medium"
+                      >
+                        <p>Forget Password? </p>Reset Password
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-2 w-full border-t border-gray-200 text-center"></div>
+                <div className="p-2 w-full">
+                  <SocialLogin />
                 </div>
               </div>
             </div>

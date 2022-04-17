@@ -35,17 +35,11 @@ const Header = () => {
             <span className="ml-3 text-xl">SS Photography</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link to="" className="mr-5 hover:text-gray-900">
-              First Link
+            <Link to="/blog" className="mr-5 hover:text-gray-900">
+              Blog
             </Link>
-            <Link to="" className="mr-5 hover:text-gray-900">
-              Second Link
-            </Link>
-            <Link to="" className="mr-5 hover:text-gray-900">
-              Third Link
-            </Link>
-            <Link to="" className="mr-5 hover:text-gray-900">
-              Fourth Link
+            <Link to="/about" className="mr-5 hover:text-gray-900">
+              About Me
             </Link>
           </nav>
           {!user ? (
