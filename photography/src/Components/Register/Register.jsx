@@ -1,6 +1,52 @@
-import React from "react";
-
+import React, { useState } from "react";
+import auth from "../../firebase.init";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 const Register = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [confirmPassword, setconfirmPassword] = useState();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+
+  const handleRegister = async (event) => {
+    event.preventDefault();
+    await createUserWithEmailAndPassword(email, password);
+  };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
+  if (user) {
+    toast.success("Registration Success!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success1",
+    });
+    navigate(from, { replace: true });
+  }
+  if (error) {
+    toast.error("Registration Faild!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "error",
+    });
+  }
   return (
     <>
       <section className="text-gray-600 body-font relative">
@@ -14,7 +60,7 @@ const Register = () => {
               gentrify.
             </p>
           </div>
-          <form action="">
+          <form onSubmit={handleRegister}>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
               <div className="flex flex-wrap -m-2">
                 <div className="p-2 w-full">
@@ -26,6 +72,7 @@ const Register = () => {
                       Email
                     </label>
                     <input
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       id="email"
                       name="email"
@@ -43,6 +90,7 @@ const Register = () => {
                       Password
                     </label>
                     <input
+                      onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       id="password"
                       name="password"
@@ -59,6 +107,7 @@ const Register = () => {
                       Confirm Password
                     </label>
                     <input
+                      onChange={(e) => setconfirmPassword(e.target.value)}
                       type="password"
                       id="confirm-password"
                       name="confirm-password"

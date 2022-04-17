@@ -1,6 +1,52 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
+import { toast } from "react-toastify";
+import LoadingSpinner from "../Spinner/LoadingSpinner";
 const Login = () => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(email, password);
+  };
+
+  if (user) {
+    toast.success("Login Success!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "success1",
+    });
+    navigate(from, { replace: true });
+  }
+
+  if (error) {
+    console.log(error);
+    toast.error("Login Faild!", {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      toastId: "login-error",
+    });
+  }
+  if (loading) {
+    return <LoadingSpinner />;
+  }
   return (
     <>
       <section className="text-gray-600 body-font relative">
@@ -14,7 +60,7 @@ const Login = () => {
               gentrify.
             </p>
           </div>
-          <form action="">
+          <form onSubmit={handleFormSubmit}>
             <div className="lg:w-1/2 md:w-2/3 mx-auto">
               <div className="flex flex-wrap -m-2">
                 <div className="p-2 w-full">
@@ -26,6 +72,7 @@ const Login = () => {
                       Email
                     </label>
                     <input
+                      onChange={(e) => setEmail(e.target.value)}
                       type="email"
                       id="email"
                       name="email"
@@ -43,6 +90,7 @@ const Login = () => {
                       Password
                     </label>
                     <input
+                      onChange={(e) => setPassword(e.target.value)}
                       type="password"
                       id="password"
                       name="password"
@@ -56,7 +104,50 @@ const Login = () => {
                     Sign In
                   </button>
                 </div>
-                <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"></div>
+                <div className="p-2 w-full border-t border-gray-200 text-center">
+                  <div className="container  mx-auto">
+                    <div className="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
+                      <div className="p-2 sm:w-1/2 w-full">
+                        <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <path d="M22 4L12 14.01l-3-3" />
+                          </svg>
+                          <span className="title-font font-medium">
+                            <p>New to Genius Car?</p> Please Register
+                          </span>
+                        </div>
+                      </div>
+                      <div className="p-2 sm:w-1/2 w-full">
+                        <div className="bg-gray-100 rounded flex p-4 h-full items-center">
+                          <svg
+                            fill="none"
+                            stroke="currentColor"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={3}
+                            className="text-pink-500 w-6 h-6 flex-shrink-0 mr-4"
+                            viewBox="0 0 24 24"
+                          >
+                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                            <path d="M22 4L12 14.01l-3-3" />
+                          </svg>
+                          <span className="title-font font-medium">
+                            <p>Forget Password? </p>Reset Password 
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </form>

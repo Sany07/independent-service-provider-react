@@ -35,7 +35,7 @@ const Services = () => {
               </div>
               <div className="flex-grow">
                 <h2 className="text-gray-900 text-lg title-font font-medium mb-3">
-                  Shooting Stars
+                  Wedding Photography
                 </h2>
                 <p className="leading-relaxed text-base">
                   Blue bottle crucifix vinyl post-ironic four dollar toast vegan
