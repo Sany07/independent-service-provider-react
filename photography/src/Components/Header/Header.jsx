@@ -32,7 +32,7 @@ const Header = () => {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
+            <span className="ml-3 text-xl">SS Photography</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <Link to="" className="mr-5 hover:text-gray-900">
@@ -48,7 +48,6 @@ const Header = () => {
               Fourth Link
             </Link>
           </nav>
-          {console.log(user)}
           {!user ? (
             <>
               <Link to="/register">
