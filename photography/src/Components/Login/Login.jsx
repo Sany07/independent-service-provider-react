@@ -1,14 +1,21 @@
 import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { useNavigate, useLocation, Link } from "react-router-dom";
+import {
+  useSendPasswordResetEmail,
+  useSignInWithEmailAndPassword,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../Spinner/LoadingSpinner";
+
 const Login = () => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
   const navigate = useNavigate();
   const location = useLocation();
+
   const from = location.state?.from?.pathname || "/";
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
@@ -47,6 +54,14 @@ const Login = () => {
   if (loading) {
     return <LoadingSpinner />;
   }
+  const resetPassword = async () => {
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast.success("Sent email");
+    } else {
+      toast.error("please enter your email address");
+    }
+  };
   return (
     <>
       <section className="text-gray-600 body-font relative">
@@ -121,9 +136,12 @@ const Login = () => {
                             <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                             <path d="M22 4L12 14.01l-3-3" />
                           </svg>
-                          <span className="title-font font-medium">
-                            <p>New to Genius Car?</p> Please Register
-                          </span>
+                          <Link to="/register">
+                            <span className="title-font font-medium">
+                              <p>New to Genius Car?</p>
+                              Please Register
+                            </span>
+                          </Link>
                         </div>
                       </div>
                       <div className="p-2 sm:w-1/2 w-full">
@@ -140,8 +158,11 @@ const Login = () => {
                             <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
                             <path d="M22 4L12 14.01l-3-3" />
                           </svg>
-                          <span className="title-font font-medium">
-                            <p>Forget Password? </p>Reset Password 
+                          <span
+                            onClick={resetPassword}
+                            className="cursor-pointer title-font font-medium"
+                          >
+                            <p>Forget Password? </p>Reset Password
                           </span>
                         </div>
                       </div>

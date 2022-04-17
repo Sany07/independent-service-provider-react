@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import auth from "../../firebase.init";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import LoadingSpinner from "../Spinner/LoadingSpinner";
 const Register = () => {
@@ -121,7 +121,17 @@ const Register = () => {
                     Sign up
                   </button>
                 </div>
-                <div className="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center"></div>
+                <div className="p-2 w-full border-t border-gray-200 text-center">
+                  <p>
+                    Already have an account?
+                    <Link
+                      to="/login"
+                      className="text-primary pe-auto text-decoration-none"
+                    >
+                      <span className="text-pink-500">Please Login</span>
+                    </Link>
+                  </p>
+                </div>
               </div>
             </div>
           </form>
