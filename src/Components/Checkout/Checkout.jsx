@@ -72,7 +72,7 @@ const Checkout = () => {
                 required
               />
             </div>{" "}
-            <div className="relative mb-4">
+            <div className="relative mb-4 ">
               <label
                 htmlFor="email"
                 className="leading-7 text-sm text-gray-600"
