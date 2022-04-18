@@ -5,7 +5,7 @@ const Services = () => {
   return (
     <>
       <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
+        <div className="container px-5 pt-24 mx-auto">
           <div className="text-center mb-20">
             <h1 className="sm:text-3xl text-2xl font-medium title-font text-gray-900 mb-4">
               My Services
@@ -24,7 +24,7 @@ const Services = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
-                  src="https://dummyimage.com/720x400"
+                  src="https://raw.githubusercontent.com/Sany07/react-js-practice/main/firebase-auth/public/images/photos/sh1.jpg"
                   alt="blog"
                 />
                 <div className="p-6">
@@ -70,7 +70,7 @@ const Services = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
-                  src="https://dummyimage.com/721x401"
+                  src="https://raw.githubusercontent.com/Sany07/react-js-practice/main/firebase-auth/public/images/photos/sh2.jpg"
                   alt="blog"
                 />
                 <div className="p-6">
@@ -116,7 +116,7 @@ const Services = () => {
               <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
                 <img
                   className="lg:h-48 md:h-36 w-full object-cover object-center"
-                  src="https://dummyimage.com/722x402"
+                  src="https://raw.githubusercontent.com/Sany07/react-js-practice/main/firebase-auth/public/images/photos/sh3.jpg"
                   alt="blog"
                 />
                 <div className="p-6">

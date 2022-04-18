@@ -10,6 +10,7 @@ import RequireAuth from "./Utilities/RequireAuth";
 import Blog from "./Components/Blog/Blog";
 import About from "./Components/AboutUS/About";
 import NotFound from "./Components/NotFound/NotFound";
+import NewsLetters from "./Components/NewsLetter/NewsLetters";
 function App() {
   return (
     <>
@@ -31,6 +32,8 @@ function App() {
         />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <NewsLetters />
+
       <Footer />
     </>
   );

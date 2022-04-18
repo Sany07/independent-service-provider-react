@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
+import CustomLink from "../../Utilities/CustomLink";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [user] = useAuthState(auth);
@@ -10,6 +12,7 @@ const Header = () => {
 
   const handleSignOut = () => {
     signOut(auth);
+    toast.success("Logout Syccessful");
     navigate("/login");
   };
   return (
@@ -35,16 +38,16 @@ const Header = () => {
             <span className="ml-3 text-xl">SS Photography</span>
           </Link>
           <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <Link to="/blog" className="mr-5 hover:text-gray-900">
+            <CustomLink to="/blog" className="mr-5 pb-2 hover:text-gray-900">
               Blog
-            </Link>
-            <Link to="/about" className="mr-5 hover:text-gray-900">
+            </CustomLink>
+            <CustomLink to="/about" className="mr-5 pb-2  hover:text-gray-900">
               About Me
-            </Link>
+            </CustomLink>
           </nav>
           {!user ? (
             <>
-              <Link to="/register">
+              <CustomLink to="/register" className="pb-2">
                 <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 mr-1 md:mt-0">
                   Register
                   <svg
@@ -59,8 +62,8 @@ const Header = () => {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
-              </Link>
-              <Link to="/login">
+              </CustomLink>
+              <CustomLink to="/login" className="pb-2">
                 <button className="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
                   Login
                   <svg
@@ -75,7 +78,7 @@ const Header = () => {
                     <path d="M5 12h14M12 5l7 7-7 7" />
                   </svg>
                 </button>
-              </Link>
+              </CustomLink>
             </>
           ) : (
             <>

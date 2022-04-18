@@ -24,11 +24,11 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div className="lg:max-w-lg lg:w-full  md:w-1/2 w-5/6">
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="https://raw.githubusercontent.com/programming-hero-web-course-4/independent-service-provider-Sany07/main/photography/public/images/photos/bnr.jpg?token=GHSAT0AAAAAABQYZ74FLX7ZE4RHS2C4FHMOYS5CXSQ"
+              src="https://raw.githubusercontent.com/Sany07/react-js-practice/main/firebase-auth/public/images/photos/bnr.jpg"
             />
           </div>
         </div>
