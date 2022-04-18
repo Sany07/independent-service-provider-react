@@ -6,7 +6,6 @@
 
 ```
 Features
-
 ```
 * Home Page
 * About Page
@@ -17,7 +16,6 @@ Features
 
 ```
 Technologies  
-
 ```
 * ReateJs
 * Firebase for Hosting & Authentication
