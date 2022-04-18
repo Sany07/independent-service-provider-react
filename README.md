@@ -1,6 +1,24 @@
-# minimal-react18
+# independent-service-provider-Sany07
 
-This is a minimal template for react@18.
-After react@18 came out regular react-create-app template started giving a warning about "render". This template fixes that and create a very minimal boilerplate for react project.
-To use this template add --template minimal-react18 while creating new app.
-`npx create-react-app my-app --template minimal-react18`
+# SS Photography
+
+<a href="https://photography-b0a33.web.app/">Live Link</a>
+
+```
+Features
+```
+* Home Page
+* About Page
+* Checkout Page
+* Login Page -> Login through email, pass & also social login via gmail
+* Register Page
+* Not Found Page
+
+```
+Technologies  
+```
+* ReateJs
+* Firebase for Hosting & Authentication
+* React firebase hook
+* React router
+* React toastify
