@@ -20,10 +20,7 @@ const Home = () => {
             </p>
             <div className="flex justify-center">
               <button className="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded text-lg">
-                Button
-              </button>
-              <button className="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">
-                Button
+                Order Now
               </button>
             </div>
           </div>
@@ -31,7 +28,7 @@ const Home = () => {
             <img
               className="object-cover object-center rounded"
               alt="hero"
-              src="https://demos.elemisthemes.com/brailie/style/images/art/f7.jpg"
+              src="https://raw.githubusercontent.com/programming-hero-web-course-4/independent-service-provider-Sany07/main/photography/public/images/photos/bnr.jpg?token=GHSAT0AAAAAABQYZ74FLX7ZE4RHS2C4FHMOYS5CXSQ"
             />
           </div>
         </div>
