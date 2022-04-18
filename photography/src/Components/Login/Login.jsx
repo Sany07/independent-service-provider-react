@@ -40,8 +40,7 @@ const Login = () => {
   }
 
   if (error) {
-    console.log(error);
-    toast.error("Login Faild!", {
+    toast.error("Invalid Credential", {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,

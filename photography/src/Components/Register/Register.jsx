@@ -16,6 +16,10 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
+    if (password !== confirmPassword) {
+      toast.error("Conform Password not matched");
+      return;
+    }
     await createUserWithEmailAndPassword(email, password);
   };
 
@@ -44,7 +48,7 @@ const Register = () => {
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      toastId: "error",
+      toastId: "reg-error",
     });
   }
   return (

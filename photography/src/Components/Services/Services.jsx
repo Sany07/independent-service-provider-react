@@ -169,7 +169,7 @@ const Services = () => {
                 />
                 <div className="p-6">
                   <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
-                    Shooting Stars
+                  Sports Photographe
                   </h1>
                   <p className="leading-relaxed mb-3">
                     Photo booth fam kinfolk cold-pressed sriracha leggings

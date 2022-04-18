@@ -7,6 +7,9 @@ import Register from "./Components/Register/Register";
 import Checkout from "./Components/Checkout/Checkout.jsx";
 import Toaster from "./Components/Toaster/Toaster";
 import RequireAuth from "./Utilities/RequireAuth";
+import Blog from "./Components/Blog/Blog";
+import About from "./Components/AboutUS/About";
+import NotFound from "./Components/NotFound/NotFound";
 function App() {
   return (
     <>
@@ -16,6 +19,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/about" element={<About />} />
         <Route
           path="/checkout/:id"
           element={
@@ -24,6 +29,7 @@ function App() {
             </RequireAuth>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
     </>
